@@ -96,6 +96,10 @@ func main() {
 	}
 
 	ws, err := websocket.Dial(url, protocol, origin)
+	if err != nil {
+		fmt.Println(red("Connection Error:"), err.Error())
+		os.Exit(0)
+	}
 
 	if protocol != "" {
 		fmt.Printf("connecting to %s via %s from %s...\n", yellow(url), yellow(protocol), yellow(origin))
@@ -104,10 +108,6 @@ func main() {
 	}
 
 	defer ws.Close()
-
-	if err != nil {
-		panic(err)
-	}
 
 	fmt.Printf("successfully connected to %s\n\n", green(url))
 
