@@ -102,14 +102,14 @@ func main() {
 	}
 
 	if protocol != "" {
-		fmt.Printf("connecting to %s via %s from %s...\n", yellow(url), yellow(protocol), yellow(origin))
+		fmt.Println(yellow("Connecting to:"), url, "via", protocol, "from", origin, "...")
 	} else {
-		fmt.Printf("connecting to %s from %s...\n", yellow(url), yellow(origin))
+		fmt.Println(yellow("Connecting to:"), url, "from", origin, "...")
 	}
 
 	defer ws.Close()
 
-	fmt.Printf("successfully connected to %s\n\n", green(url))
+	fmt.Println(green("Successfully connected\n"))
 
 	wg.Add(3)
 
